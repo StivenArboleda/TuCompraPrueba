@@ -1,10 +1,13 @@
 package com.tucompra.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
+
 import java.util.Date;
 
 @Entity
 @Table(name = "historia_clinica")
+@Data
 public class HistoriaClinica {
 
     @Id
@@ -18,7 +21,5 @@ public class HistoriaClinica {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "fecha_creacion")
     private Date fechaCreacion;
-
-    // Getters y setters
 
 }

@@ -1,9 +1,11 @@
 package com.tucompra.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
 @Table(name = "mascota")
+@Data
 public class Mascota {
 
     @Id

@@ -1,9 +1,11 @@
 package com.tucompra.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
 @Table(name = "usuario")
+@Data
 public class Usuario {
 
     @Id
@@ -16,7 +18,5 @@ public class Usuario {
     private String documentoIdentificacion;
     private String estado;
     private String sexo;
-
-    // Getters y setters
 
 }

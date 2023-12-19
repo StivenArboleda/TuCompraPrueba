@@ -18,7 +18,7 @@ public class UsuarioService {
         return usuarioRepository.findAll();
     }
 
-    public Usuario getUsuarioById(Long id) {
+    public Usuario getUsuarioById(Long id) throws ClinicaExcepcion{
         return usuarioRepository.findById(id)
                 .orElseThrow(() -> new ClinicaExcepcion("No se encontró el usuario con ID: " + id));
     }

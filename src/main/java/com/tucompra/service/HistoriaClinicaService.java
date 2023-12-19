@@ -2,17 +2,21 @@ package com.tucompra.service;
 
 import com.tucompra.helpers.ClinicaExcepcion;
 import com.tucompra.model.HistoriaClinica;
+import com.tucompra.model.Mascota;
 import com.tucompra.repository.HistoriaClinicaRepository;
+import com.tucompra.repository.MascotaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class HistoriaClinicaService {
 
     @Autowired
     private HistoriaClinicaRepository historiaClinicaRepository;
+
+    @Autowired
+    private MascotaRepository mascotaRepository;
 
     public List<HistoriaClinica> getAllHistoriasClinicas() {
         return historiaClinicaRepository.findAll();
@@ -24,6 +28,9 @@ public class HistoriaClinicaService {
     }
 
     public HistoriaClinica saveHistoriaClinica(HistoriaClinica historiaClinica) {
+        Mascota mascota =  mascotaRepository.findById(historiaClinica.getMascota().getId())
+                .orElseThrow(() -> new ClinicaExcepcion("No se encontró la mascota con ID: " + historiaClinica.getMascota().getId()));
+        historiaClinica.setMascota(mascota);
         return historiaClinicaRepository.save(historiaClinica);
     }
 

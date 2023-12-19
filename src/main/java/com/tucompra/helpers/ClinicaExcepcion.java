@@ -9,4 +9,5 @@ public class ClinicaExcepcion extends RuntimeException {
     public ClinicaExcepcion(String message, Throwable cause) {
         super(message, cause);
     }
+
 }

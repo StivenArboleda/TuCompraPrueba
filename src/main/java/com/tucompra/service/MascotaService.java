@@ -2,7 +2,10 @@ package com.tucompra.service;
 
 import com.tucompra.helpers.ClinicaExcepcion;
 import com.tucompra.model.Mascota;
+import com.tucompra.model.Usuario;
 import com.tucompra.repository.MascotaRepository;
+import com.tucompra.repository.UsuarioRepository;
+import org.hibernate.service.spi.InjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -14,6 +17,9 @@ public class MascotaService {
     @Autowired
     private MascotaRepository mascotaRepository;
 
+    @Autowired
+    private UsuarioRepository usuarioRepository;
+
     public List<Mascota> getAllMascotas() {
         return mascotaRepository.findAll();
     }
@@ -24,6 +30,9 @@ public class MascotaService {
     }
 
     public Mascota saveMascota(Mascota mascota) {
+        Usuario usuario = usuarioRepository.findById(mascota.getUsuario().getId())
+                .orElseThrow(() -> new ClinicaExcepcion("No se encontró el usuario con ID: " + mascota.getUsuario().getId()));
+        mascota.setUsuario(usuario);
         return mascotaRepository.save(mascota);
     }
 
