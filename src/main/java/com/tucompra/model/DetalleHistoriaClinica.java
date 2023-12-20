@@ -1,6 +1,8 @@
 package com.tucompra.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -15,23 +17,32 @@ public class DetalleHistoriaClinica {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Debe ingresar el valor de la temperatura")
     private Double temperatura;
 
     @Column(precision = 19, scale = 2)
+    @NotBlank(message = "Debe ingresar el valor del peso")
     private BigDecimal peso;
 
     @Column(name = "frecuencia_cardiaca", precision = 19, scale = 2)
+    @NotBlank(message = "Debe ingresar el valor de la frecuencia cardiaca")
     private BigDecimal frecuenciaCardiaca;
 
     @Column(name = "frecuencia_respiratoria", precision = 19, scale = 2)
+    @NotBlank(message = "Debe ingresar el valor de la frecuencia respitoria")
     private BigDecimal frecuenciaRespiratoria;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "fecha_hora")
     private Date fechaHora;
 
+    @NotBlank(message = "Debe ingresar la alimentacion de la mascota")
     private String alimentacion;
+
+    @NotBlank(message = "Debe ingresar el habitad de la mascota")
     private String habitad;
+
+    @NotBlank(message = "Debe ingresar una observacion de la mascota")
     private String observacion;
 
     @ManyToOne
