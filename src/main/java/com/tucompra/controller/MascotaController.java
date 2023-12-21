@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/mascotas")
+@CrossOrigin(origins = "http://localhost:4200")
 public class MascotaController {
 
     @Autowired
