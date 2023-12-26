@@ -75,14 +75,11 @@ public class UsuarioService {
 
     @Transactional
     public void deleteUsuario(Long id) {
-        // Obtén el usuario
         Usuario usuario = usuarioRepository.findById(id)
                 .orElseThrow(() -> new ClinicaExcepcion("No se encontró el usuario con ID: " + id));
 
-        // Elimina las historias clínicas asociadas
         historiaClinicaRepository.deleteByMascotaUsuarioId(id);
 
-        // Elimina el usuario
         usuarioRepository.deleteById(id);
     }
 

@@ -95,9 +95,14 @@ public class HistoriaClinicaService {
         return dto;
     }
 
-    public HistoriaClinica saveHistoriaClinica(HistoriaClinica historiaClinica) {
-        Mascota mascota =  mascotaRepository.findById(historiaClinica.getMascota().getId())
+    public HistoriaClinica saveHistoriaClinica(HistoriaClinica historiaClinica) throws ClinicaExcepcion {
+        Mascota mascota = mascotaRepository.findById(historiaClinica.getMascota().getId())
                 .orElseThrow(() -> new ClinicaExcepcion("No se encontró la mascota con ID: " + historiaClinica.getMascota().getId()));
+
+        if (historiaClinicaRepository.existsByMascotaId(mascota.getId())) {
+            throw new ClinicaExcepcion("La mascota ya tiene una historia clínica creada.");
+        }
+
         historiaClinica.setMascota(mascota);
         return historiaClinicaRepository.save(historiaClinica);
     }

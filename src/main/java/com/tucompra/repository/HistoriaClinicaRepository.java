@@ -20,5 +20,6 @@ public interface HistoriaClinicaRepository extends JpaRepository<HistoriaClinica
     @Query("DELETE FROM HistoriaClinica h WHERE h.mascota.usuario.id = :usuarioId")
     void deleteByMascotaUsuarioId(@Param("usuarioId") Long usuarioId);
 
+    boolean existsByMascotaId(Long mascotaId);
 
 }
