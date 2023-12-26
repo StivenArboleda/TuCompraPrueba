@@ -15,19 +15,19 @@ public class Colaborador {
     private Long id;
 
     @NotBlank(message = "Debe ingresar el nombre del colaborador")
-    @Size(message = "El nombre debe ser entre 3 y 10 caracteres", min = 3, max = 10)
+    @Size(message = "El nombre debe ser entre 3 y 20 caracteres", min = 3, max = 20)
     private String nombre;
 
     @NotBlank(message = "Debe ingresar el apellido del colaborador")
-    @Size(message = "El apellido debe ser entre 3 y 10 caracteres", min = 3, max = 10)
+    @Size(message = "El apellido debe ser entre 3 y 20 caracteres", min = 3, max = 20)
     private String apellido;
 
     @NotBlank(message = "Debe ingresar el cargo del colaborador")
-    @Size(message = "El cargo debe ser entre 3 y 10 caracteres", min = 3, max = 10)
+    @Size(message = "El cargo debe ser entre 3 y 20 caracteres", min = 3, max = 20)
     private String cargo;
 
     @NotBlank(message = "Debe ingresar el especialidad del colaborador")
-    @Size(message = "El especialidad debe ser entre 3 y 10 caracteres", min = 3, max = 10)
+    @Size(message = "El especialidad debe ser entre 3 y 20 caracteres", min = 3, max = 20)
     private String especialidad;
 
     @NotBlank(message = "Debe ingresar el tipo de documento del colaborador")

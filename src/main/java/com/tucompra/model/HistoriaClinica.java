@@ -1,9 +1,12 @@
 package com.tucompra.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "historia_clinica")
@@ -21,5 +24,8 @@ public class HistoriaClinica {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "fecha_creacion")
     private Date fechaCreacion;
+
+    @OneToMany(mappedBy = "historiaClinica", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<DetalleHistoriaClinica> detallesHistoriaClinica = new ArrayList<>();
 
 }

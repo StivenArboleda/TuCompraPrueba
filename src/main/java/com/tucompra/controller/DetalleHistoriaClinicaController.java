@@ -1,6 +1,7 @@
 package com.tucompra.controller;
 
 import com.tucompra.model.DetalleHistoriaClinica;
+import com.tucompra.model.DetalleHistoriaDTO;
 import com.tucompra.service.DetalleHistoriaClinicaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,10 @@ public class DetalleHistoriaClinicaController {
     @GetMapping
     public List<DetalleHistoriaClinica> getAllDetallesHistoriaClinica() {
         return detalleHistoriaClinicaService.getAllDetallesHistoriaClinica();
+    }
+    @GetMapping("/detalle/{id}")
+    public DetalleHistoriaDTO getDetalle(@PathVariable Long id){
+        return detalleHistoriaClinicaService.getDetalleHistoriaClinica(id);
     }
 
     @GetMapping("/{id}")

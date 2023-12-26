@@ -1,7 +1,9 @@
 package com.tucompra.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
@@ -17,19 +19,19 @@ public class DetalleHistoriaClinica {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "Debe ingresar el valor de la temperatura")
+    @NotNull(message = "Debe ingresar el valor de la temperatura")
     private Double temperatura;
 
     @Column(precision = 19, scale = 2)
-    @NotBlank(message = "Debe ingresar el valor del peso")
+    @NotNull(message = "Debe ingresar el valor del peso")
     private BigDecimal peso;
 
     @Column(name = "frecuencia_cardiaca", precision = 19, scale = 2)
-    @NotBlank(message = "Debe ingresar el valor de la frecuencia cardiaca")
+    @NotNull(message = "Debe ingresar el valor de la frecuencia cardiaca")
     private BigDecimal frecuenciaCardiaca;
 
     @Column(name = "frecuencia_respiratoria", precision = 19, scale = 2)
-    @NotBlank(message = "Debe ingresar el valor de la frecuencia respitoria")
+    @NotNull(message = "Debe ingresar el valor de la frecuencia respitoria")
     private BigDecimal frecuenciaRespiratoria;
 
     @Temporal(TemporalType.TIMESTAMP)
@@ -51,6 +53,7 @@ public class DetalleHistoriaClinica {
 
     @ManyToOne
     @JoinColumn(name = "historia_clinica_id")
+    @JsonBackReference
     private HistoriaClinica historiaClinica;
 
 }
