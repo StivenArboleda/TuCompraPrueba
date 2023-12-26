@@ -1,0 +1,565 @@
+{
+	"info": {
+		"_postman_id": "eebce270-f3a4-4301-ad0e-3ff620aed1c0",
+		"name": "Clinica TuCompra",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19372695"
+	},
+	"item": [
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Obtener usuario por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ruta}}usuarios/17",
+							"host": [
+								"{{ruta}}usuarios"
+							],
+							"path": [
+								"17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar usuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ruta}}usuarios",
+							"host": [
+								"{{ruta}}usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agregar usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Jhones\",\r\n    \"apellido\": \"Arboleda\",\r\n    \"tipoDocumento\": \"Cédula\",\r\n    \"documentoIdentificacion\": \"10021484\",\r\n    \"estado\": \"Activo\",\r\n    \"sexo\": \"Masculino\",\r\n    \"mascotas\": [\r\n    {\r\n      \"nombre\": \"Cansona\",\r\n      \"raza\": \"Coquer\",\r\n      \"sexo\": \"Hembra\"\r\n    }\r\n  ]\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ruta}}usuarios",
+							"host": [
+								"{{ruta}}usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar usuario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Jhon S\",\r\n    \"apellido\": \"Arboleda\",\r\n    \"tipoDocumento\": \"Cédula\",\r\n    \"documentoIdentificacion\": \"10021445\",\r\n    \"estado\": \"Activo\",\r\n    \"sexo\": \"Masculino\",\r\n    \"mascotas\": [\r\n    {\r\n      \"nombre\": \"Nala Cansona\",\r\n      \"raza\": \"Coquer\",\r\n      \"sexo\": \"Hembra\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ruta}}usuarios/17",
+							"host": [
+								"{{ruta}}usuarios"
+							],
+							"path": [
+								"17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar usuario por ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ruta}}usuarios/19",
+							"host": [
+								"{{ruta}}usuarios"
+							],
+							"path": [
+								"19"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Colaborador",
+			"item": [
+				{
+					"name": "Obtener colaborador por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ruta}}colaboradores/1",
+							"host": [
+								"{{ruta}}colaboradores"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar colaboradores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ruta}}colaboradores",
+							"host": [
+								"{{ruta}}colaboradores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agregar colaborador",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Maria\",\r\n    \"apellido\": \"Gomez\",\r\n    \"cargo\": \"Veterinaria\",\r\n    \"especialidad\": \"Internista\",\r\n    \"tipoDocumento\": \"Cédula\",\r\n    \"documentoIdentificacion\": \"10021021\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ruta}}colaboradores",
+							"host": [
+								"{{ruta}}colaboradores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar colaborador",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"NuevoNombre\",\r\n    \"apellido\": \"NuevoApellido\",\r\n    \"cargo\": \"NuevoCargo\",\r\n    \"especialidad\": \"NuevaEspecialidad\",\r\n    \"tipoDocumento\": \"NuevoTipoDocumento\",\r\n    \"documentoIdentificacion\": \"NuevoDocumento\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ruta}}colaboradores/2",
+							"host": [
+								"{{ruta}}colaboradores"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar colaborador por ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ruta}}colaboradores/3",
+							"host": [
+								"{{ruta}}colaboradores"
+							],
+							"path": [
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Mascota",
+			"item": [
+				{
+					"name": "Obtener mascota por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ruta}}mascotas/19",
+							"host": [
+								"{{ruta}}mascotas"
+							],
+							"path": [
+								"19"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar mascotas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ruta}}mascotas",
+							"host": [
+								"{{ruta}}mascotas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agregar mascota",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Sasha\",\r\n    \"raza\": \"Gata gris\",\r\n    \"usuario\": {\r\n        \"id\": 18\r\n    },\r\n    \"sexo\": \"Hembra\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ruta}}mascotas",
+							"host": [
+								"{{ruta}}mascotas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar mascotas",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"NuevoNombreMascota\",\r\n    \"raza\": \"NuevaRaza\",\r\n    \"usuario\": {\r\n        \"id\": 2\r\n    },\r\n    \"sexo\": \"NuevoSexo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ruta}}mascotas/16",
+							"host": [
+								"{{ruta}}mascotas"
+							],
+							"path": [
+								"16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar mascota por ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ruta}}mascotas/19",
+							"host": [
+								"{{ruta}}mascotas"
+							],
+							"path": [
+								"19"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Historia clinica",
+			"item": [
+				{
+					"name": "Obtener historia clinica por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ruta}}historias-clinicas/12",
+							"host": [
+								"{{ruta}}historias-clinicas"
+							],
+							"path": [
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar historias clinicas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ruta}}historias-clinicas",
+							"host": [
+								"{{ruta}}historias-clinicas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agregar historia clinica",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mascota\": {\r\n        \"id\": 16\r\n    },\r\n    \"fechaCreacion\": \"2023-12-20T10:00:00\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ruta}}historias-clinicas",
+							"host": [
+								"{{ruta}}historias-clinicas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar historia clínica",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mascota\": {\r\n        \"id\": 15\r\n    },\r\n    \"fechaCreacion\": \"2023-12-20T10:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ruta}}historias-clinicas/3",
+							"host": [
+								"{{ruta}}historias-clinicas"
+							],
+							"path": [
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar historia clinica por ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ruta}}historias-clinicas/14",
+							"host": [
+								"{{ruta}}historias-clinicas"
+							],
+							"path": [
+								"14"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DetalleHistoriaClinica",
+			"item": [
+				{
+					"name": "Obtener detalle de HC por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ruta}}detalles-historias-clinicas/3",
+							"host": [
+								"{{ruta}}detalles-historias-clinicas"
+							],
+							"path": [
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar detalle de HC",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ruta}}detalles-historias-clinicas",
+							"host": [
+								"{{ruta}}detalles-historias-clinicas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agregar detalle historia clinica",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"temperatura\": 38.5,\r\n    \"peso\": 10.2,\r\n    \"frecuenciaCardiaca\": 50,\r\n    \"frecuenciaRespiratoria\": 20,\r\n    \"fechaHora\": \"2023-12-20T12:30\",\r\n    \"alimentacion\": \"Croquetas\",\r\n    \"habitad\": \"Interior\",\r\n    \"observacion\": \"No muestra mejoría\",\r\n    \"colaborador\": {\r\n        \"id\": 1\r\n    },\r\n    \"historiaClinica\": {\r\n        \"id\": 1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ruta}}detalles-historias-clinicas",
+							"host": [
+								"{{ruta}}detalles-historias-clinicas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar detalle de HC",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"temperatura\": 38.5,\r\n    \"peso\": 10.2,\r\n    \"frecuenciaCardiaca\": 50,\r\n    \"frecuenciaRespiratoria\": 20,\r\n    \"fechaHora\": \"2023-12-20T12:30:00\",\r\n    \"alimentacion\": \"NuevaAlimentacion\",\r\n    \"habitad\": \"NuevoHabitad\",\r\n    \"observacion\": \"Nueva observacion\",\r\n    \"colaborador\": {\r\n        \"id\": 1\r\n    },\r\n    \"historiaClinica\": {\r\n        \"id\": 1\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ruta}}detalles-historias-clinicas/3",
+							"host": [
+								"{{ruta}}detalles-historias-clinicas"
+							],
+							"path": [
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar detalle de HC por ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ruta}}detalles-historias-clinicas/2",
+							"host": [
+								"{{ruta}}detalles-historias-clinicas"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ver detalles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ruta}}detalles-historias-clinicas/detalle/2",
+							"host": [
+								"{{ruta}}detalles-historias-clinicas"
+							],
+							"path": [
+								"detalle",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "ruta",
+			"value": "http://localhost:8082/",
+			"type": "string"
+		}
+	]
+}
