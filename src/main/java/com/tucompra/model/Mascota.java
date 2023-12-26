@@ -1,5 +1,6 @@
 package com.tucompra.model;
 
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
@@ -7,6 +8,7 @@ import lombok.Data;
 @Entity
 @Table(name = "mascota")
 @Data
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Mascota {
 
     @Id
@@ -19,8 +21,9 @@ public class Mascota {
     @NotBlank(message = "Debe ingresar la raza de la mascota")
     private String raza;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "usuario_id")
+    @JsonBackReference
     private Usuario usuario;
 
     @NotBlank(message = "Debe ingresar el sexo de la mascota")

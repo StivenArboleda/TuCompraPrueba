@@ -1,6 +1,7 @@
 package com.tucompra.controller;
 
 import com.tucompra.model.Mascota;
+import com.tucompra.model.MascotaDTO;
 import com.tucompra.service.MascotaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,12 +17,12 @@ public class MascotaController {
     private MascotaService mascotaService;
 
     @GetMapping
-    public List<Mascota> getAllMascotas() {
+    public List<MascotaDTO>getAllMascotas() {
         return mascotaService.getAllMascotas();
     }
 
     @GetMapping("/{id}")
-    public Mascota getMascotaById(@PathVariable Long id) {
+    public MascotaDTO getMascotaById(@PathVariable Long id) {
         return mascotaService.getMascotaById(id);
     }
 

@@ -1,9 +1,13 @@
 package com.tucompra.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "usuario")
@@ -35,5 +39,9 @@ public class Usuario {
 
     @NotBlank(message = "Debe ingresar el sexo del usuario")
     private String sexo;
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonManagedReference
+    private List<Mascota> mascotas = new ArrayList<>();
 
 }

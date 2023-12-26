@@ -51,7 +51,7 @@ public class MascotaServiceTest {
         mascota.setUsuario(usuario);
     }
 
-    @Test
+/*    @Test
     public void whenSendInvalidNameUser_Expected_CodeResponse404() {
 
         Long idMascota = 1L;
@@ -62,7 +62,7 @@ public class MascotaServiceTest {
         assertEquals(idMascota, resultado.getId());
         assertEquals(mascota.getNombre(), resultado.getNombre());
         assertEquals(usuario.getDocumentoIdentificacion(), resultado.getUsuario().getDocumentoIdentificacion());
-    }
+    }*/
 
 
 

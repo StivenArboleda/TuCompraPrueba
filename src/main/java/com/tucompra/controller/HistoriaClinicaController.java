@@ -1,6 +1,7 @@
 package com.tucompra.controller;
 
 import com.tucompra.model.HistoriaClinica;
+import com.tucompra.model.HistoriaClinicaDTO;
 import com.tucompra.service.HistoriaClinicaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,12 +17,12 @@ public class HistoriaClinicaController {
     private HistoriaClinicaService historiaClinicaService;
 
     @GetMapping
-    public List<HistoriaClinica> getAllHistoriasClinicas() {
+    public List<HistoriaClinicaDTO> getAllHistoriasClinicas() {
         return historiaClinicaService.getAllHistoriasClinicas();
     }
 
     @GetMapping("/{id}")
-    public HistoriaClinica getHistoriaClinicaById(@PathVariable Long id) {
+    public HistoriaClinicaDTO getHistoriaClinicaById(@PathVariable Long id) {
         return historiaClinicaService.getHistoriaClinicaById(id);
     }
 
