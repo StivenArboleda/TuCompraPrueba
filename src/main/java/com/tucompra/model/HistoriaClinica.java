@@ -25,7 +25,8 @@ public class HistoriaClinica {
     @Column(name = "fecha_creacion")
     private Date fechaCreacion;
 
-    @OneToMany(mappedBy = "historiaClinica", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "historiaClinica", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @JsonManagedReference
     private List<DetalleHistoriaClinica> detallesHistoriaClinica = new ArrayList<>();
 
 }

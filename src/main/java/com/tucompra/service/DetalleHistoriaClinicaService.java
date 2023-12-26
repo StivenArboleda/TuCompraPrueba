@@ -5,6 +5,7 @@ import com.tucompra.model.*;
 import com.tucompra.repository.ColaboradorRepository;
 import com.tucompra.repository.DetalleHistoriaClinicaRepository;
 import com.tucompra.repository.HistoriaClinicaRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -118,7 +119,16 @@ public class DetalleHistoriaClinicaService {
         return detalleHistoriaClinicaRepository.save(detalleHistoriaClinica);
     }
 
+    @Transactional
     public void deleteDetalleHistoriaClinica(Long id) {
+        DetalleHistoriaClinica detalleHistoriaClinica = detalleHistoriaClinicaRepository.findById(id)
+                .orElseThrow(() -> new ClinicaExcepcion("No se encontró el detalle de historia clínica con ID: " + id));
+
+        HistoriaClinica historiaClinica = historiaClinicaRepository.findById(detalleHistoriaClinica.getHistoriaClinica().getId())
+                .orElseThrow(() -> new ClinicaExcepcion("No se encontró la historia clínica con ID: " + detalleHistoriaClinica.getHistoriaClinica().getId()));
+
+
+        historiaClinica.getDetallesHistoriaClinica().remove(detalleHistoriaClinica);
         detalleHistoriaClinicaRepository.deleteById(id);
     }
 }

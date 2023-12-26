@@ -40,7 +40,7 @@ public class Usuario {
     @NotBlank(message = "Debe ingresar el sexo del usuario")
     private String sexo;
 
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     @JsonManagedReference
     private List<Mascota> mascotas = new ArrayList<>();
 

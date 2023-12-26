@@ -51,7 +51,7 @@ public class DetalleHistoriaClinica {
     @JoinColumn(name = "colaborador_id")
     private Colaborador colaborador;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "historia_clinica_id")
     @JsonBackReference
     private HistoriaClinica historiaClinica;

@@ -88,9 +88,13 @@ public class MascotaService {
         Mascota mascota = mascotaRepository.findById(id)
                 .orElseThrow(() -> new ClinicaExcepcion("No se encontró la mascota con ID: " + id));
 
+        Usuario usuario = usuarioRepository.findById(mascota.getUsuario().getId())
+                .orElseThrow(() -> new ClinicaExcepcion("No se encontró el usuario con ID: " + mascota.getUsuario().getId()));
+
         if (historiaClinicaRepository.existsByMascotaId(id)) {
             historiaClinicaRepository.deleteByMascotaId(mascota.getId());
         }
+        usuario.getMascotas().remove(mascota);
         mascotaRepository.deleteById(id);
     }
 }
