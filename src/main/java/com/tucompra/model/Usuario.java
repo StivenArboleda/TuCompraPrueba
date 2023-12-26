@@ -19,7 +19,7 @@ public class Usuario {
     private Long id;
 
     @NotBlank(message = "Debe ingresar el nombre del usuario")
-    @Size(message = "El nombre debe ser entre 3 y 10 caracteres", min = 3, max = 10)
+    @Size(message = "El nombre debe ser entre 3 y 20 caracteres", min = 3, max = 10)
     private String nombre;
 
     @NotBlank(message = "Debe ingresar el apellido del usuario")

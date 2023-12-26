@@ -5,8 +5,10 @@ import com.tucompra.model.Mascota;
 import com.tucompra.model.MascotaDTO;
 import com.tucompra.model.Usuario;
 import com.tucompra.model.UsuarioDTO;
+import com.tucompra.repository.HistoriaClinicaRepository;
 import com.tucompra.repository.MascotaRepository;
 import com.tucompra.repository.UsuarioRepository;
+import jakarta.transaction.Transactional;
 import org.hibernate.service.spi.InjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,9 @@ public class MascotaService {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
+
+    @Autowired
+    private HistoriaClinicaRepository historiaClinicaRepository;
 
     public List<MascotaDTO> getAllMascotas() {
         List<Mascota> mascotas = mascotaRepository.findAll();
@@ -78,7 +83,14 @@ public class MascotaService {
         return mascotaRepository.save(mascota);
     }
 
+    @Transactional
     public void deleteMascota(Long id) {
+        Mascota mascota = mascotaRepository.findById(id)
+                .orElseThrow(() -> new ClinicaExcepcion("No se encontró la mascota con ID: " + id));
+
+        if (historiaClinicaRepository.existsByMascotaId(id)) {
+            historiaClinicaRepository.deleteByMascotaId(mascota.getId());
+        }
         mascotaRepository.deleteById(id);
     }
 }

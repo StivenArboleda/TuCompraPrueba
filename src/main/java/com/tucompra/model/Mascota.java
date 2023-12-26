@@ -8,7 +8,6 @@ import lombok.Data;
 @Entity
 @Table(name = "mascota")
 @Data
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Mascota {
 
     @Id
